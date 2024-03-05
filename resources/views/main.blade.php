@@ -1,9 +1,9 @@
 @extends('layout.layout')
 @section('content')
     <!-- component -->
-    <div class="flex flex-col h-full" style="background-color: #161616;">
+    <div class="flex flex-col h-full" style="background:url('BG.jpg') no-repeat center center fixed; background-size: cover">
         <div class="mx-auto mt-8 h-full">
-            <div class="mx-auto h-[213px] w-[213px] overflow-hidden rounded-full bg-gradient-to-tr from-[#FF8660] to-[#8000FF]">
+            <div class="mx-auto mt-8 h-[213px] w-[213px] overflow-hidden rounded-full bg-gradient-to-tr from-[#FF8660] to-[#8000FF] animate-bounce">
                 <img src="https://i.imgur.com/4U5tBXC.png" alt="" />
             </div>
             <h1 class="max-w-screen-sm text-center text-[55px] font-extrabold text-white">
@@ -14,6 +14,7 @@
                 The objective is to provide an optimal user experience for participants, organisers, and administrators. This plate is enabled for users to discover, reserve and generate tickets for a variety of events, as the organizers have the possibility of creating and generating more suitable events.
             </p>
         </div>
+
     </div>
 @endsection
 {{--bg-[#161513]--}}
