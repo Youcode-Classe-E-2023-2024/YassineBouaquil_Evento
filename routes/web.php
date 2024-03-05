@@ -57,6 +57,18 @@ Route::get('/subscribe', function () {
 
 
 Route::get('/reserve', function () {
-    $black_hover = 'Be an organizer';
+    $black_hover = 'Reserve a ticket';
     return view('reserve', compact('black_hover'));
 })->name('reserve');
+
+Route::get('/manageEvent',function (){
+    $black_hover = 'Manage events';
+    return view('manageEvent', compact('black_hover'));
+})->name('manageEvent');
+
+
+
+Route::get('/reservation',function (){
+    $black_hover='Reservations';
+    return view('reservation',compact('black_hover'));
+})->name('reservation');
