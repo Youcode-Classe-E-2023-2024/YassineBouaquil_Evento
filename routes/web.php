@@ -54,3 +54,9 @@ Route::get('/subscribe', function () {
     $black_hover = 'Be an organizer';
     return view('subscribe', compact('black_hover'));
 })->name('subscribe');
+
+
+Route::get('/reserve', function () {
+    $black_hover = 'Be an organizer';
+    return view('reserve', compact('black_hover'));
+})->name('reserve');

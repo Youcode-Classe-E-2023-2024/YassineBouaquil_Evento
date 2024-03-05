@@ -28,7 +28,7 @@
         </li>
 
         <li class="{{ $black_hover == 'Reserve a ticket' ? 'black_hover': '' }}">
-            <a href="#">
+            <a href="{{ route('reserve') }}">
                         <span class="icon">
                             <ion-icon name="ticket-outline"></ion-icon>
                         </span>
