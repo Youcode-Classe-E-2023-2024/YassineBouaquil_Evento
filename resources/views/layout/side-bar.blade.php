@@ -37,7 +37,7 @@
         </li>
 
         <li class="{{ $black_hover == 'Manage events' ? 'black_hover': '' }}">
-            <a href="#" class="">
+            <a href="{{ route('manageEvent') }}" class="">
                         <span class="icon">
                             <ion-icon name="construct-outline"></ion-icon>
                         </span>
@@ -46,7 +46,7 @@
         </li>
 
         <li class="{{ $black_hover == 'Reservations' ? 'black_hover': '' }}">
-            <a href="#">
+            <a href="{{ route('reservation') }}">
                         <span class="icon">
                             <ion-icon name="analytics-outline"></ion-icon>
                         </span>
