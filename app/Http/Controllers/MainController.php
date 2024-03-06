@@ -1,20 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
         $black_hover = 'home';
-        $events = Event::where('date','>=',now())
-            ->orderBy('date','asc')
+        $events = Event::where('start_date', '>=', now())
+            ->orderBy('start_date', 'asc')
             ->get();
+
+
         $data = compact('events', 'black_hover');
         return view('main')->with($data);
     }
