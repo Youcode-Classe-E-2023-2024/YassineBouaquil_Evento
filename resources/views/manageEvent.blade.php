@@ -30,6 +30,22 @@
                                 <label for="description" class="block text-gray-600 text-sm font-medium">Description</label>
                                 <textarea id="description" name="description" class="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-500 resize-none" rows="4"></textarea>
                             </div>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-600 text-sm font-medium">Place</label>
+                                <input type="text" id="name" name="Place" class="mt-1 p-2 w-full border rounded-md">
+                            </div>
+                            <label for="name" class="block text-gray-600 text-sm font-medium">Price</label>
+                            <input type="text" id="name" name="Price" class="mt-1 p-2 w-full border rounded-md">
+                            <div class="mb-4">
+                                <label for="category" class="block text-gray-600 text-sm font-medium">Category</label>
+                                <select id="category" name="category" class="mt-1 p-2 w-full border rounded-md">
+                                    <option value="music">1</option>
+                                    <option value="sport">2</option>
+                                    <option value="conference">3</option>
+                                    <!-- Ajoutez d'autres options selon vos besoins -->
+                                </select>
+                            </div>
+
 
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
