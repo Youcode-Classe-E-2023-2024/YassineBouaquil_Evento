@@ -1,5 +1,9 @@
 <div class="navigation">
     <ul style="padding-top: 10px;">
+
+
+
+
         <li>
             <a href="#">
                 <span class="icon" style="background-color: white; display: flex; justify-content: center; align-items: center; border-radius: 100%;">
@@ -8,6 +12,12 @@
                 <span class="title">EVENTO</span>
             </a>
         </li>
+        <div class="p-4 mx-1">
+            @auth
+                <p class="text-white">Bienvenue, {{ Auth::user()->name }}</p>
+            @endauth
+        </div>
+
 
         <li class="{{ $black_hover == 'home' ? 'black_hover': '' }}">
             <a href="{{ route('main') }}">
