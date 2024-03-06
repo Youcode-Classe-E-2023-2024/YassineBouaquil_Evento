@@ -17,6 +17,7 @@
     </section>
     <section class="flex absolut items-center flex-col w-[100vw] h-full"
              style="background:url('BG.jpg') no-repeat center ; background-size: cover">
+
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-12 h-screen ">
         <div
             class="w-full flex flex-col justify-center items-center m-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
