@@ -5,6 +5,8 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\OrganizerSubController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -61,6 +63,8 @@ Route::get('/reserve', function () {
     return view('reserve', compact('black_hover'));
 })->name('reserve');
 
+
+
 Route::get('/manageEvent',function (){
     $black_hover = 'Manage events';
     return view('manageEvent', compact('black_hover'));
@@ -68,7 +72,5 @@ Route::get('/manageEvent',function (){
 
 
 
-Route::get('/reservation',function (){
-    $black_hover='Reservations';
-    return view('reservation',compact('black_hover'));
-})->name('reservation');
+
+
