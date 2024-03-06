@@ -70,8 +70,15 @@ Route::get('/manageEvent',function (){
     return view('manageEvent', compact('black_hover'));
 })->name('manageEvent');
 
+Route::get('/manageCategories',function (){
+    $black_hover = 'Manage categories';
+    return view('manageCategories', compact('black_hover'));
+})->name('manageCategories');
+
 
 
 Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
+Route::post('/create.category', [MainController::class, 'create'])->name('createcategory');
+
 
 
