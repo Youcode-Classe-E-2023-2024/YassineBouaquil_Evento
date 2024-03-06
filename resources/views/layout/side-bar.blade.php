@@ -14,7 +14,7 @@
         </li>
         <div class="p-4 mx-1">
             @auth
-                <p class="text-white">Bienvenue, {{ Auth::user()->name }}</p>
+                <p class="text-white text-bold">Bienvenue, {{ Auth::user()->name }}</p>
             @endauth
         </div>
 
