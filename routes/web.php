@@ -72,5 +72,6 @@ Route::get('/manageEvent',function (){
 
 
 
+Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
 
 
