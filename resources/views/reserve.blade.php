@@ -15,19 +15,24 @@
                                 @forelse ($events as $event)
                                     <article class="flex flex-col dark:bg-gray-900">
                                             <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="{{ $event->image_url }}">
-                                        <div class="flex flex-col flex-1 p-6">
+                                        <div class="flex flex-col  space-y-2 flex-1 p-6">
 
 
                                             <h3 class="flex-1 py-2 text-lg font-semibold leadi">{{ $event->title }}</h3>
+                                            <br>
                                             <a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">{{ $event->category }}</a>
 
+                                            <button class="bg-green-500 text-white rounded-full transition duration-300 ease-in-out hover:bg-green-600">
+                                                <h1 class="flex-1 py-2 text-lg font-semibold">{{ $event->price }} DH</h1>
+                                            </button>
+
                                             <a class="flex-1 py-2 ">{{ $event->description }}</a>
-                                            <a class="flex-1 py-2 "> In : {{ $event->place }}</a>
-
-
-
+                                            <div>
+                                                <a class="flex-1 py-2 "> In : {{ $event->place }}</a>
+                                            </div>
 
                                         </div>
+
                                     </article>
                                 @empty
                                     <p>Aucun événement disponible pour le moment.</p>
