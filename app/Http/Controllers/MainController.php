@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +19,15 @@ class MainController extends Controller
             ->orderBy('start_date', 'asc')
             ->get();
 
-
         $data = compact('events', 'black_hover');
         return view('main')->with($data);
+    }
+    public function showManageEventPage()
+    {
+        $black_hover = 'Manage events';
+        $categories = Category::all(); // Fetch all categories
+
+        return view('manageEvent', compact('black_hover', 'categories'));
     }
 
     public function create(Request $request)

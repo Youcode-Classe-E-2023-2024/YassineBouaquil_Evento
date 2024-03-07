@@ -10,6 +10,10 @@ class Event extends Model
     use HasFactory;
     protected $table = 'events';
     protected $primaryKey = 'event_id';
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category');
+    }
 
 }
 

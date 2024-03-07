@@ -42,10 +42,10 @@
                             <div class="mb-4">
                                 <label for="category" class="block text-gray-600 text-sm font-medium">Category</label>
                                 <select id="category" name="category" class="mt-1 p-2 w-full border rounded-md">
-                                    <option value="music">1</option>
-                                    <option value="sport">2</option>
-                                    <option value="conference">3</option>
-                                    <!-- Ajoutez d'autres options selon vos besoins -->
+                                    @foreach($categories as $category)
+
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

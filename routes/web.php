@@ -64,17 +64,16 @@ Route::get('/subscribe', function () {
 Route::get('/reserve', [EventController::class, 'index'])->name('reserve');
 
 
-Route::get('/manageEvent',function (){
-    $black_hover = 'Manage events';
-    return view('manageEvent', compact('black_hover'));
-})->name('manageEvent');
+Route::get('/manageEvent', [MainController::class, 'showManageEventPage'])->name('manageEvent');
+Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
+
+
 Route::get('/manageCategories', [CategoryController::class, 'index'])->name('manageCategories')->middleware('auth');
 
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store')->middleware('auth');
 Route::delete('/categories.destroySelected', [CategoryController::class, 'destroy'])->name('categories.destroySelected')->middleware('auth');
 
 
-Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
 
 
 

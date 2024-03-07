@@ -20,7 +20,9 @@
 
                                             <h3 class="flex-1 py-2 text-lg font-semibold leadi">{{ $event->title }}</h3>
                                             <br>
-                                            <a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">{{ $event->category }}</a>
+                                            <a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">
+                                                {{ optional(\App\Models\Category::find($event->category))->name }}
+                                            </a>
 
                                             <button class="bg-green-500 text-white rounded-full transition duration-300 ease-in-out hover:bg-green-600">
                                                 <h1 class="flex-1 py-2 text-lg font-semibold">{{ $event->price }} DH</h1>
