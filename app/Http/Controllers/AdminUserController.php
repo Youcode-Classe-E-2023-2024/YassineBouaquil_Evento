@@ -45,6 +45,28 @@ class AdminUserController extends Controller
 
         return redirect()->route('manageUsers')->with('success', 'User unbanned successfully');
     }
+    public function editRole($userId)
+    {
+
+        $user = User::findOrFail($userId);
+        $roles = Role::all();
+        $black_hover = 'Manage users';
+
+        return view('editUserRole', compact('user', 'roles', 'black_hover'));
+    }
+
+    public function updateRole(Request $request, $userId)
+    {
+        $user = User::findOrFail($userId);
+
+        $request->validate([
+            'role_id' => 'required|exists:roles,id',
+        ]);
+
+        $user->roles()->sync([$request->input('role_id')]);
+
+        return redirect()->route('manageUsers')->with('success', 'User role updated successfully');
+    }
 
 
 }
