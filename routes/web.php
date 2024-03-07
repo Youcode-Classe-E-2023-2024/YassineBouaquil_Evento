@@ -83,4 +83,6 @@ Route::post('/manageUsers/{userId}/ban', [AdminUserController::class, 'ban'])->n
 Route::post('/manageUsers/{userId}/unban', [AdminUserController::class, 'unban'])->name('manageUsers.unban')->middleware('auth');
 
 
+Route::put('/manageUsers/{userId}/updateRole', [AdminUserController::class, 'updateRole'])->name('manageUsers.updateRole');
 
+Route::get('/manageUsers/{userId}/editRole', [AdminUserController::class, 'editRole'])->name('manageUsers.editRole');

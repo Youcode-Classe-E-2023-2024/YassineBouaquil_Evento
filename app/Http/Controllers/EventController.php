@@ -28,7 +28,7 @@ class EventController extends Controller
 
         Event::create($request->all());
 
-        return redirect)(->route('manageEvent')->with('success', 'Événement ajouté avec succès.');
+        return redirect()->route('manageEvent')->with('success', 'Événement ajouté avec succès.');
     }
 
     public function destroy(Event $event)
