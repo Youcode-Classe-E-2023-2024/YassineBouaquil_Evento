@@ -39,13 +39,14 @@ class MainController extends Controller
             'startDate' => 'required|date',
             'endDate' => 'required|date|after_or_equal:startDate',
             'guestCapacity' => 'required|integer|min:1',
+            'autoApproval' => 'required|boolean',
         ]);
 
         // Store the uploaded image
         // Retrieve the authenticated user's ID
         $user_id = Auth::id();
         // Create the event
-        $event = new Event();
+        $event = new Event($request->all());
         $event->user_id = $user_id;
         $event->title = $request->title;
         $event->description = $request->description;
@@ -55,9 +56,12 @@ class MainController extends Controller
         $event->available_places = $request->guestCapacity;
         $event->start_date = $request->startDate;
         $event->end_date = $request->endDate;
+        $event->auto_approval = $request->autoApproval;
         $event->save();
 
         // Redirect to a success page or return a response
         return redirect()->route('manageEvent'); // Replace 'success.route' with your actual success route name
     }
+
+
 }

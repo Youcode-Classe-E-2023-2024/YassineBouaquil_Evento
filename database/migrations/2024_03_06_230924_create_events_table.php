@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('available_places')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->boolean('auto_approval')->default(true);
+
             $table->timestamps();
         });
     }

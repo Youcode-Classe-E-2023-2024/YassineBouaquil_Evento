@@ -73,6 +73,13 @@
                                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out">Créer l'evenement</button>
                             </div>
                         </form>
+                        <div class="mb-4">
+                            <label for="autoApproval" class="block text-gray-600 text-sm font-medium">Auto Approval</label>
+                            <select id="autoApproval" name="autoApproval" class="mt-1 p-2 w-full border rounded-md">
+                                <option value="1" selected>Auto Approval</option>
+                                <option value="0">Manual Approval</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
