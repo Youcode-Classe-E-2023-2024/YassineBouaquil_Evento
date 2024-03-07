@@ -22,6 +22,29 @@ class AdminUserController extends Controller
 
         return redirect()->route('manageUsers')->with('success', 'Roles assigned successfully');
     }
+    public function delete($userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->delete();
+
+        return redirect()->route('manageUsers')->with('success', 'User deleted successfully');
+    }
+
+    public function ban($userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->update(['is_banned' => true]);
+
+        return redirect()->route('manageUsers')->with('success', 'User banned successfully');
+    }
+
+    public function unban($userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->update(['is_banned' => false]);
+
+        return redirect()->route('manageUsers')->with('success', 'User unbanned successfully');
+    }
 
 
 }

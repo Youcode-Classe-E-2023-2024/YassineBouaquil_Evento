@@ -78,7 +78,9 @@ Route::delete('/categories.destroySelected', [CategoryController::class, 'destro
 Route::get('/manageUsers', [AdminUserController::class, 'index'])->name('manageUsers')->middleware('auth');
 
 
-
+Route::delete('/manageUsers/{userId}/delete', [AdminUserController::class, 'delete'])->name('manageUsers.delete')->middleware('auth');
+Route::post('/manageUsers/{userId}/ban', [AdminUserController::class, 'ban'])->name('manageUsers.ban')->middleware('auth');
+Route::post('/manageUsers/{userId}/unban', [AdminUserController::class, 'unban'])->name('manageUsers.unban')->middleware('auth');
 
 
 
