@@ -1,18 +1,45 @@
 @extends('layout.layout')
 @section('content')
 
-    <section class="h-full relative bg-[#161513] py-4">
-        <div class="container mx-auto xl:px-32">
-            <div class="grid items-center lg:grid-cols-2">
-                <div class="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
-                    <div class="container mx-auto p-8">
+<div class=" "
+     style="background:url('BG.jpg') no-repeat center center fixed ; background-size: cover">
+
+
+
+                    <div class="py-6 sm:py-12 dark:text-gray-100">
+                        <div class="container p-6 mx-auto space-y-8">
+                            <div class="space-y-2 text-center">
+                                <h2 class="text-3xl font-bold">Reserve a ticket</h2>
+                            </div>
+                            <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+                                @forelse ($events as $event)
+                                    <article class="flex flex-col dark:bg-gray-900">
+                                            <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="{{ $event->image_url }}">
+                                        <div class="flex flex-col flex-1 p-6">
+
+
+                                            <h3 class="flex-1 py-2 text-lg font-semibold leadi">{{ $event->title }}</h3>
+                                            <a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">{{ $event->category }}</a>
+
+                                            <a class="flex-1 py-2 ">{{ $event->description }}</a>
+                                            <a class="flex-1 py-2 "> In : {{ $event->place }}</a>
+
+
+
+
+                                        </div>
+                                    </article>
+                                @empty
+                                    <p>Aucun événement disponible pour le moment.</p>
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
 
 
-                </div>
+</div>
 
-            </div>
-        </div>
+
     </section>
 
 @endsection

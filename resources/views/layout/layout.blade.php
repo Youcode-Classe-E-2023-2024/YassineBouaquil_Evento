@@ -2,8 +2,8 @@
 <div class="container">
     @include('layout.side-bar')
     <!-- ========================= Main ==================== -->
-    <div class="main">
-        <div class="h-screen">
+    <div class="main w-full">
+        <div class="h-screen w-full">
             @yield('content')
         </div>
     </div>

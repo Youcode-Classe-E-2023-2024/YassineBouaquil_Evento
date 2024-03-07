@@ -10,7 +10,9 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        return view('manageEvent', compact('events'));
+        $black_hover = 'Reserve a ticket';
+
+        return view('reserve', compact('black_hover', 'events'));
     }
 
     public function store(Request $request)

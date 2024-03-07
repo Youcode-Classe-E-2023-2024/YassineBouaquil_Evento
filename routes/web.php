@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\OrganizerSubController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
 
 
@@ -58,11 +59,8 @@ Route::get('/subscribe', function () {
 })->name('subscribe');
 
 
-Route::get('/reserve', function () {
-    $black_hover = 'Reserve a ticket';
-    return view('reserve', compact('black_hover'));
-})->name('reserve');
 
+Route::get('/reserve', [EventController::class, 'index'])->name('reserve');
 
 
 Route::get('/manageEvent',function (){
@@ -79,6 +77,7 @@ Route::get('/manageCategories',function (){
 
 Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
 Route::post('/create.category', [MainController::class, 'create'])->name('createcategory');
+
 
 
 

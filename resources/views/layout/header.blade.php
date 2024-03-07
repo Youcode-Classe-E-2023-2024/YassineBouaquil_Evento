@@ -15,4 +15,4 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="w-full">
