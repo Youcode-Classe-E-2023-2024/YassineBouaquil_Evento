@@ -8,6 +8,8 @@ use App\Http\Controllers\OrganizerSubController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminUserController;
+
 
 
 
@@ -72,6 +74,9 @@ Route::get('/manageCategories', [CategoryController::class, 'index'])->name('man
 
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store')->middleware('auth');
 Route::delete('/categories.destroySelected', [CategoryController::class, 'destroy'])->name('categories.destroySelected')->middleware('auth');
+
+Route::get('/manageUsers', [AdminUserController::class, 'index'])->name('manageUsers')->middleware('auth');
+
 
 
 

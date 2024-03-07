@@ -73,13 +73,24 @@
             </li>
 
             <li class="{{ $black_hover == 'Manage users' ? 'black_hover': '' }}">
-                <a href="#">
+                <a href="{{ route('manageUsers') }}">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
                     <span class="title">Manage users</span>
                 </a>
             </li>
+
+        <li class="{{ $black_hover == 'statistics' ? 'black_hover': '' }}">
+            <a href="#">
+                    <span class="icon">
+                        <ion-icon name="stats-chart-outline"></ion-icon>
+                    </span>
+                <span class="title">Statistics</span>
+            </a>
+        </li>
+
+        </li>
 
             <!-- Ajoutez d'autres fonctionnalités spécifiques aux Administrateurs ici -->
 

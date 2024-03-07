@@ -2,11 +2,15 @@
 
 @section('content')
     <div id="particles-js" class="absolute top-0 left-0 w-full h-full"></div>
-
+    <div class=" h-full w-full bg-green-500"
+         style="background:url('BG.jpg') no-repeat center center fixed; background-size: cover">
+    <div class="py-6 sm:py-12 dark:text-gray-100">
+        <div class="container p-6 mx-auto space-y-8">
+            <div class="space-y-2 text-center">
     <div class="container mx-auto py-8">
         <div class="mb-4">
             <h2 class="text-2xl font-bold mb-2">Existing Categories</h2>
-            <table class="table-auto">
+            <table class="table-auto flex items-center justify-center flex-col">
                 <thead>
                 <tr>
                     <th class="px-4 py-2">Category Name</th>
@@ -36,7 +40,7 @@
             <form action="{{ route('categories.destroySelected') }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <select name="category_ids[]" multiple class="w-full border p-2">
+                <select name="category_ids[]" multiple class="w-full border p-2  text-dark text-bold" >
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -44,6 +48,10 @@
                 <button type="submit" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete Selected Categories</button>
             </form>
         </div>
+    </div>
+            </div>
+        </div>
+    </div>
     </div>
 
 

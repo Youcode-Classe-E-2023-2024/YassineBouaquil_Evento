@@ -27,6 +27,13 @@
                                             <button class="bg-green-500 text-white rounded-full transition duration-300 ease-in-out hover:bg-green-600">
                                                 <h1 class="flex-1 py-2 text-lg font-semibold">{{ $event->price }} DH</h1>
                                             </button>
+                                            @if($event->available_places == 0)
+                                                <button disabled
+                                                        class="text-white bg-gray-400 cursor-not-allowed focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600">Full</button>
+                                            @else
+                                                <a
+                                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reserve</a>
+                                            @endif
 
                                             <a class="flex-1 py-2 ">{{ $event->description }}</a>
                                             <div>

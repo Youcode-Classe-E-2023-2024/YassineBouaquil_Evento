@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
     <!-- component -->
-    <section class="flex items-center flex-col  "
+    <section class="flex items-center h-full w-full flex-col  "
              style="background:url('BG.jpg') no-repeat center center fixed; background-size: cover">
         <div id="particles-js" class="absolute top-0 left-0 w-full h-full"></div>
 
