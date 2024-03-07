@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,17 +68,13 @@ Route::get('/manageEvent',function (){
     $black_hover = 'Manage events';
     return view('manageEvent', compact('black_hover'));
 })->name('manageEvent');
+Route::get('/manageCategories', [CategoryController::class, 'index'])->name('manageCategories')->middleware('auth');
 
-Route::get('/manageCategories',function (){
-    $black_hover = 'Manage categories';
-    return view('manageCategories', compact('black_hover'));
-})->name('manageCategories');
-
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store')->middleware('auth');
+Route::delete('/categories.destroySelected', [CategoryController::class, 'destroy'])->name('categories.destroySelected')->middleware('auth');
 
 
 Route::post('/create.event', [MainController::class, 'create'])->name('createevent');
-Route::post('/create.category', [MainController::class, 'create'])->name('createcategory');
-
 
 
 

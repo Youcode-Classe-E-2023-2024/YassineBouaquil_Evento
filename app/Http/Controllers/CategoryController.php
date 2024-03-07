@@ -10,47 +10,43 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
-    }
+        $black_hover = 'Manage Categories';
+        $categories = Category::All();
 
-    public function create()
-    {
-        return view('admin.categories.create');
-    }
 
+
+        $data = compact('categories', 'black_hover');
+        return view('manageCategories')->with($data);
+    }
     public function store(Request $request)
     {
+        // Validate request
         $request->validate([
-            'name' => 'required|unique:categories',
+            'name' => 'required|string|max:255|unique:categories,name', // Unique validation rule ensures no duplicate category names
         ]);
 
-        Category::create($request->all());
-
-        return redirect()->route('admin.categories.index')->with('success', 'Catégorie ajoutée avec succès.');
-    }
-
-    public function edit(Category $category)
-    {
-        return view('admin.categories.edit', compact('category'));
-    }
-
-    public function update(Request $request, Category $category)
-    {
-        $request->validate([
-            'name' => 'required|unique:categories,name,' . $category->id,
+        // Create new category
+        Category::create([
+            'name' => $request->name,
         ]);
 
-        $category->update($request->all());
-
-        return redirect()->route('admin.categories.index')->with('success', 'Catégorie modifiée avec succès.');
+        // Redirect back with success message or do any additional logic as needed
+        return redirect()->back()->with('success', 'Category has been added.');
     }
-
-    public function destroy(Category $category)
+    public function destroy(Request $request)
     {
-        $category->delete();
+        // Validate request
+        $request->validate([
+            'category_ids' => 'required|array',
+            'category_ids.*' => 'exists:categories,id', // Ensure all selected category IDs exist
+        ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Catégorie supprimée avec succès.');
+        // Delete selected categories
+        Category::whereIn('id', $request->input('category_ids'))->delete();
+
+        // Redirect back with success message or do any additional logic as needed
+        return redirect()->back()->with('success', 'Selected categories have been deleted.');
     }
+
 
 }
