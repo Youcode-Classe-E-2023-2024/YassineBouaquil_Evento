@@ -32,10 +32,13 @@
                             </div>
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-600 text-sm font-medium">Place</label>
-                                <input type="text" id="name" name="Place" class="mt-1 p-2 w-full border rounded-md">
+                                <input type="text" id="place" name="place" class="mt-1 p-2 w-full border rounded-md">
                             </div>
+
                             <label for="name" class="block text-gray-600 text-sm font-medium">Price</label>
-                            <input type="text" id="name" name="Price" class="mt-1 p-2 w-full border rounded-md">
+                            <input type="text" id="price" name="price" class="mt-1 p-2 w-full border rounded-md">
+
+
                             <div class="mb-4">
                                 <label for="category" class="block text-gray-600 text-sm font-medium">Category</label>
                                 <select id="category" name="category" class="mt-1 p-2 w-full border rounded-md">
