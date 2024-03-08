@@ -82,7 +82,7 @@
             </li>
 
         <li class="{{ $black_hover == 'statistics' ? 'black_hover': '' }}">
-            <a href="#">
+            <a href="{{ route('statistics') }}">
                     <span class="icon">
                         <ion-icon name="stats-chart-outline"></ion-icon>
                     </span>

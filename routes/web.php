@@ -11,6 +11,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminUserController;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Event; // Add this line at the top
+use App\Http\Controllers\StatisticsController;
 
 
 
@@ -67,6 +68,14 @@ Route::get('/subscribe', function () {
 })->name('subscribe');
 
 
+Route::get('statistics',function (){
+    $black_hover = 'statistics';
+    return view('statistics',compact('black_hover'));
+})->name('statistics');
+
+Route::get('statistics', [StatisticsController::class, 'index'])->name('statistics');
+
+
 
 Route::get('/reserve', [EventController::class, 'index'])->name('reserve');
 
@@ -101,3 +110,6 @@ Route::get('/generate-ticket/{eventId}', function ($eventId) {
 })->name('generateTicket');
 
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
+
+
+//Route::get('/statistics',[StatisticsController::class, 'index'])->name('statistics');

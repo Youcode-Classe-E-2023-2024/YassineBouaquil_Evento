@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 
-<div class=" "
+<div class="bg-dark"
      style="background:url('BG.jpg') no-repeat center center fixed ; background-size: cover">
 
 
