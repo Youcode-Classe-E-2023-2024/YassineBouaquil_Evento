@@ -9,6 +9,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminUserController;
+use Barryvdh\DomPDF\Facade as PDF;
+use App\Models\Event; // Add this line at the top
+
+
+
 
 
 
@@ -86,3 +91,13 @@ Route::post('/manageUsers/{userId}/unban', [AdminUserController::class, 'unban']
 Route::put('/manageUsers/{userId}/updateRole', [AdminUserController::class, 'updateRole'])->name('manageUsers.updateRole');
 
 Route::get('/manageUsers/{userId}/editRole', [AdminUserController::class, 'editRole'])->name('manageUsers.editRole');
+
+Route::get('/generate-ticket/{eventId}', function ($eventId) {
+    $event = Event::findOrFail($eventId);
+
+    $pdf = PDF::loadView('ticket', compact('event'));
+
+    return $pdf->download('ticket.pdf');
+})->name('generateTicket');
+
+Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
