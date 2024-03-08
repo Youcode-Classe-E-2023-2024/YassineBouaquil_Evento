@@ -17,7 +17,7 @@
             </div>
 
             <!-- Chart.js Chart -->
-            <canvas id="statisticsChart" width="400" height="200"></canvas>
+            <canvas id="statisticsChart" ></canvas>
         </div>
     </div>
 
