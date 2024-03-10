@@ -109,7 +109,12 @@ Route::get('/generate-ticket/{eventId}', function ($eventId) {
     return $pdf->download('ticket.pdf');
 })->name('generateTicket');
 
+
+Route::get('/update/{event_id}', [EventController::class, 'edite'])->name('eventEdite')->middleware('auth');
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
+Route::get('drop/{event_id}/event',[EventController::class, 'delete'])->name('drop.event');
+Route::post('/update/{event_id}/event', [EventController::class, 'update'])->name('update.event')->middleware('auth');
+Route::get('/publish.event/{event_id}', [EventController::class, 'publish'])->name('publishevent')->middleware('auth');
 
 
 //Route::get('/statistics',[StatisticsController::class, 'index'])->name('statistics');
