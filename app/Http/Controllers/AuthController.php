@@ -44,6 +44,20 @@ class AuthController extends Controller
         ]);
 
         $remember = request()->has('remember'); // Check if "Remember Me" checkbox is checked
+        $user = User::where('email', $validated['email'])->first();
+        if ($user) {
+            // Check if the user is banned          
+            if ($user->is_banned === 1) {
+                return redirect()->route('login')->withErrors([
+                    'email' => 'Your account has been banned. Please contact support for further assistance.'
+                ]);
+            }else if(auth()->attempt($validated, $remember)) {
+                request()->session()->regenerate();
+                return redirect()->route('main');
+            }
+        }
+
+
 
         if(auth()->attempt($validated, $remember)) {
             request()->session()->regenerate();
