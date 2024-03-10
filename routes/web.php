@@ -115,7 +115,8 @@ Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generate
 Route::get('drop/{event_id}/event',[EventController::class, 'delete'])->name('drop.event');
 Route::post('/update/{event_id}/event', [EventController::class, 'update'])->name('update.event')->middleware('auth');
 Route::get('/publish.event/{event_id}', [EventController::class, 'publish'])->name('publishevent')->middleware('auth');
-
+Route::get('events/{event_id}',[EventController::class, 'details'])->name('event.details');
+Route::get('reserveTicket/{event_id}',[EventController::class, 'reserveTickets'])->name('reserveTicket');
 // Ajoutez ceci dans votre fichier web.php
 Route::get('/search',[EventController::class,'searchEvent'])->name('searchEvent');
 

@@ -35,11 +35,13 @@
             <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
                 @forelse ($events as $event)
                     <article class="flex flex-col dark:bg-gray-900">
+                    <a href="{{ url('events')}}/{{$event->id}}">
                         <img alt="" class="object-cover w-full h-52 dark:bg-gray-500" src="{{ $event->image_url }}">
+</a>
                         <div class="flex flex-col  space-y-2 flex-1 p-6">
 
-
-                            <h3 class="flex-1 py-2 text-lg font-semibold leadi">{{ $event->title }}</h3>
+                        <a href="{{ url('events')}}/{{$event->id}}">
+                            <h3 class="flex-1 py-2 text-lg font-semibold leadi">{{ $event->title }}</h3></a>
                             <br>
                             <a rel="noopener noreferrer" href="#" class="text-xs tracki uppercase hover:underline dark:text-violet-400">
                                 {{ optional(\App\Models\Category::find($event->category))->name }}
@@ -52,7 +54,7 @@
                                 <button disabled
                                         class="text-white bg-gray-400 cursor-not-allowed focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600">Full</button>
                             @else
-                                <a href="{{ route('generateTicket', $event->id) }}" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reserve</a>
+                            <a href="{{ url('events')}}/{{$event->id}}" target="_blank" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Reserve</a>
                             @endif
 
                             <a class="flex-1 py-2 ">{{ $event->description }}</a>

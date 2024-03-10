@@ -1,9 +1,9 @@
 @include('layout.header')
-<div class="container">
+<div class=" ">
     @include('layout.side-bar')
     <!-- ========================= Main ==================== -->
-    <div class="main w-full">
-        <div class="h-screen w-full">
+    <div class="main">
+        <div class="h-screen">
             @yield('content')
         </div>
     </div>
