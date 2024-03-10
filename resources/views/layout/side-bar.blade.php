@@ -14,7 +14,7 @@
         </li>
         <div class="p-4 mx-1">
             @auth
-                <p class="text-white text-bold">Bienvenue, {{ Auth::user()->name }}</p>
+            <p class="text-white text-bold">Bienvenue, {{ Auth::user()->name }}</p>
             @endauth
         </div>
 
@@ -36,63 +36,69 @@
                 <span class="title">Reserve a ticket</span>
             </a>
         </li>
+        @php
+        $userRole = null;
+        if (Auth::check()) {
+        $userRole = Auth::user()->role;
+        }
 
-        @if(Auth::user()->role == 'Organisateur' || Auth::user()->role == 'Administrateur')
-            <!-- Ces éléments ne seront affichés que pour les Organisateurs et les Administrateurs -->
-            <li class="{{ $black_hover == 'Be an organizer' ? 'black_hover': '' }}">
-                <a href="{{ route('subscribe') }}">
-                    <span class="icon">
-                        <ion-icon name="cube-outline"></ion-icon>
-                    </span>
-                    <span class="title">Be an organizer</span>
-                </a>
-            </li>
+        @endphp
+        @if (Auth::check() && ($userRole == 1 || $userRole == 2))
+        <!-- Ces éléments ne seront affichés que pour les Organisateurs et les Administrateurs -->
+        <li class="{{ $black_hover == 'Be an organizer' ? 'black_hover': '' }}">
+            <a href="{{ route('subscribe') }}">
+                <span class="icon">
+                    <ion-icon name="cube-outline"></ion-icon>
+                </span>
+                <span class="title">Be an organizer</span>
+            </a>
+        </li>
 
-            <li class="{{ $black_hover == 'Manage events' ? 'black_hover': '' }}">
-                <a href="{{ route('manageEvent') }}" class="">
-                    <span class="icon">
-                        <ion-icon name="construct-outline"></ion-icon>
-                    </span>
-                    <span class="title">Manage events</span>
-                </a>
-            </li>
+        <li class="{{ $black_hover == 'Manage events' ? 'black_hover': '' }}">
+            <a href="{{ route('manageEvent') }}" class="">
+                <span class="icon">
+                    <ion-icon name="construct-outline"></ion-icon>
+                </span>
+                <span class="title">Manage events</span>
+            </a>
+        </li>
 
-            <!-- Ajoutez d'autres fonctionnalités spécifiques aux Organisateurs et Administrateurs ici -->
+        <!-- Ajoutez d'autres fonctionnalités spécifiques aux Organisateurs et Administrateurs ici -->
 
         @endif
 
-        @if(Auth::user()->role == 'Administrateur')
-            <!-- Ces éléments ne seront affichés que pour les Administrateurs -->
-            <li class="{{ $black_hover == 'Manage categories' ? 'black_hover': '' }}">
-                <a href="{{ route('manageCategories') }}">
-                    <span class="icon">
-                        <ion-icon name="grid-outline"></ion-icon>
-                    </span>
-                    <span class="title">Manage categories</span>
-                </a>
-            </li>
+        @if (Auth::check() && $userRole == 1)
+        <!-- Ces éléments ne seront affichés que pour les Administrateurs -->
+        <li class="{{ $black_hover == 'Manage categories' ? 'black_hover': '' }}">
+            <a href="{{ route('manageCategories') }}">
+                <span class="icon">
+                    <ion-icon name="grid-outline"></ion-icon>
+                </span>
+                <span class="title">Manage categories</span>
+            </a>
+        </li>
 
-            <li class="{{ $black_hover == 'Manage users' ? 'black_hover': '' }}">
-                <a href="{{ route('manageUsers') }}">
-                    <span class="icon">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </span>
-                    <span class="title">Manage users</span>
-                </a>
-            </li>
+        <li class="{{ $black_hover == 'Manage users' ? 'black_hover': '' }}">
+            <a href="{{ route('manageUsers') }}">
+                <span class="icon">
+                    <ion-icon name="people-outline"></ion-icon>
+                </span>
+                <span class="title">Manage users</span>
+            </a>
+        </li>
 
         <li class="{{ $black_hover == 'statistics' ? 'black_hover': '' }}">
             <a href="{{ route('statistics') }}">
-                    <span class="icon">
-                        <ion-icon name="stats-chart-outline"></ion-icon>
-                    </span>
+                <span class="icon">
+                    <ion-icon name="stats-chart-outline"></ion-icon>
+                </span>
                 <span class="title">Statistics</span>
             </a>
         </li>
 
         </li>
 
-            <!-- Ajoutez d'autres fonctionnalités spécifiques aux Administrateurs ici -->
+        <!-- Ajoutez d'autres fonctionnalités spécifiques aux Administrateurs ici -->
 
         @endif
 
