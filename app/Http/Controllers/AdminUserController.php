@@ -48,7 +48,7 @@ class AdminUserController extends Controller
     public function editRole($userId)
     {
 
-        $user = User::with('roles')->findOrFail($userId);
+        $user = User::with('role')->findOrFail($userId);
         $roles = Role::all();
         $black_hover = 'Manage users';
 
