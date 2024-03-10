@@ -5,6 +5,11 @@
      style="background:url('BG.jpg') no-repeat center center fixed ; background-size: cover">
 
 
+<!-- Ajoutez ceci à l'intérieur de la balise <body> -->
+<form action="{{ route('searchEvent') }}" method="GET">
+    <input type="text" name="search" placeholder="Rechercher par titre">
+    <button type="submit">Rechercher</button>
+</form>
 
                     <div class="py-6 sm:py-12 dark:text-gray-100">
                         <div class="container p-6 mx-auto space-y-8">

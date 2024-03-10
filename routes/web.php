@@ -116,5 +116,7 @@ Route::get('drop/{event_id}/event',[EventController::class, 'delete'])->name('dr
 Route::post('/update/{event_id}/event', [EventController::class, 'update'])->name('update.event')->middleware('auth');
 Route::get('/publish.event/{event_id}', [EventController::class, 'publish'])->name('publishevent')->middleware('auth');
 
+// Ajoutez ceci dans votre fichier web.php
+Route::get('/search',[EventController::class,'searchEvent'])->name('searchEvent');
 
 //Route::get('/statistics',[StatisticsController::class, 'index'])->name('statistics');
