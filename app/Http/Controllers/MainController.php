@@ -15,19 +15,21 @@ class MainController extends Controller
     {
 
         $black_hover = 'home';
-        $events = Event::where('start_date', '>=', now())
-            ->orderBy('start_date', 'asc')
-            ->get();
-
+        $events = Event::where('status','=','published') ->get();
         $data = compact('events', 'black_hover');
         return view('main')->with($data);
     }
     public function showManageEventPage()
     {
         $black_hover = 'Manage events';
-        $categories = Category::all(); // Fetch all categories
+        $user = Auth::user();
+        $userid = $user->id;
+        $userevents = Event::where('user_id', '=', $userid)->get();
 
-        return view('manageEvent', compact('black_hover', 'categories'));
+        $events = Event::all();
+        $categories = Category::All();
+        $data = compact('categories', 'black_hover', 'events', 'user', 'userevents');
+        return view('manageEvent')->with($data);
     }
 
     public function create(Request $request)
