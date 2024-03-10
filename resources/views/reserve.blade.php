@@ -6,16 +6,72 @@
 
 
 <!-- Ajoutez ceci à l'intérieur de la balise <body> -->
-<form action="{{ route('searchEvent') }}" method="GET">
-    <input type="text" name="search" placeholder="Rechercher par titre">
-    <button type="submit">Rechercher</button>
-</form>
+
+<style>
+    /* Styling for the search form */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Styling for the search input */
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Styling for the search button */
+.search-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for the search input and button */
+.search-input:hover,
+.search-button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for the search input and button */
+.search-input,
+.search-button {
+    transform: translateY(0);
+    animation: translateYAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes translateYAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+</style>
 
                     <div class="py-6 sm:py-12 dark:text-gray-100">
                         <div class="container p-6 mx-auto space-y-8">
                             <div class="space-y-2 text-center">
                                 <h2 class="text-3xl font-bold">Reserve a ticket</h2>
+                                
                             </div>
+                            <form action="{{ route('searchEvent') }}" method="GET" class="search-form">
+    <input type="text" name="search" placeholder="Rechercher par titre" class="search-input">
+    <button type="submit" class="search-button">Rechercher</button>
+</form>
                             <div class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
                                 @forelse ($events as $event)
                                     <article class="flex flex-col dark:bg-gray-900">
