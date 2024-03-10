@@ -31,7 +31,7 @@
                     >
                         Register
                     </a>
-                    <a href="{{ route('login') }}" aria-label="" class="inline-flex items-center justify-center h-12 px-6 gap-1 border border-solid border-black rounded font-semibold text-gray-800 transition-colors duration-200 transform hover:scale-105 hover:text-deep-purple-accent-700 hover:bg-pink-500 hover:text-white hover:border-[0]">
+                    <a href="{{ route('login') }}" aria-label="" class="inline-flex items-center justify-center h-12 px-6 gap-1 border border-solid border-black rounded font-semibold text-gray-800 transition-colors duration-200 transform hover:scale-105 text-deep-purple-accent-700 bg-pink-500 text-white border-[0]">
                         <span>
                             Login
                         </span>
