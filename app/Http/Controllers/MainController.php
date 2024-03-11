@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Event;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,9 +14,20 @@ class MainController extends Controller
 {
     public function index()
     {
-
         $black_hover = 'home';
-        $events = Event::where('status','=','published') ->get();
+
+        // Check if the events data is already cached
+        if (Cache::has('cached_events')) {
+            // Retrieve events data from the cache
+            $events = Cache::get('cached_events');
+        } else {
+            // If not cached, fetch events from the database
+            $events = Event::where('status', '=', 'published')->get();
+
+            // Store events data in the cache for 60 minutes (adjust as needed)
+            Cache::put('cached_events', $events, 60);
+        }
+
         $data = compact('events', 'black_hover');
         return view('main')->with($data);
     }

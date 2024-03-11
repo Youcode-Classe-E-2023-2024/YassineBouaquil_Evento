@@ -5,9 +5,7 @@
 
             <li>
                 <a href="#">
-                    <span class="icona" style="background-color: white; border-radius: 100%;">
-                        <img src="{{ asset('imgs/logo.svg') }}" alt="" width="50" >
-                    </span>
+
                     <span class="title">EVENTO</span>
                 </a>
             </li>
@@ -86,8 +84,6 @@
         <!-- Ajoutez d'autres fonctionnalités spécifiques aux Administrateurs ici -->
 
         @endif
-
-        
 
         <li class="{{ $black_hover == 'Sign Out' ? 'black_hover': '' }}">
             <a href="#">

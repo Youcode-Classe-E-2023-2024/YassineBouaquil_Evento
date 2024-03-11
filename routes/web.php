@@ -101,15 +101,6 @@ Route::put('/manageUsers/{userId}/updateRole', [AdminUserController::class, 'upd
 
 Route::get('/manageUsers/{userId}/editRole', [AdminUserController::class, 'editRole'])->name('manageUsers.editRole');
 
-Route::get('/generate-ticket/{eventId}', function ($eventId) {
-    $event = Event::findOrFail($eventId);
-
-    $pdf = PDF::loadView('ticket', compact('event'));
-
-    return $pdf->download('ticket.pdf');
-})->name('generateTicket');
-
-
 Route::get('/update/{event_id}', [EventController::class, 'edite'])->name('eventEdite')->middleware('auth');
 Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
 Route::get('drop/{event_id}/event',[EventController::class, 'delete'])->name('drop.event');
